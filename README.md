@@ -1,3 +1,9 @@
+## Demo Video
+
+Watch the project walkthrough here:
+
+[Urumi AI FDE Internship — MCP Gateway Demo Video](https://drive.google.com/file/d/1p03TPzjpcShRgZVUtP5F1ly7Y-PVBWcQ/view?usp=sharing)
+
 # MCP Gateway on Kubernetes
 
 A Kubernetes-deployed MCP Gateway that connects multiple Model Context Protocol (MCP) servers and provides a centralized interface for discovering tools, interacting with an AI agent, and monitoring tool usage.
