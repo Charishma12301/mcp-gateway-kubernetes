@@ -1,0 +1,28 @@
+
+gateway:
+  replicaCount: 1
+  image:
+    repository: mcp-gateway
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    port: 8000
+
+agent:
+  replicaCount: 1
+  image:
+    repository: mcp-agent
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    port: 8001
+  gatewayUrl: "http://gateway:8000"
+
+dashboard:
+  replicaCount: 1
+  image:
+    repository: mcp-dashboard
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    port: 80

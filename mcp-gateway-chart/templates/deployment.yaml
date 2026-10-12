@@ -1,0 +1,29 @@
+
+{{- range $name, $config := .Values }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $name }}
+spec:
+  replicas: {{ $config.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ $name }}
+  template:
+    metadata:
+      labels:
+        app: {{ $name }}
+    spec:
+      containers:
+        - name: {{ $name }}
+          image: "{{ $config.image.repository }}:{{ $config.image.tag }}"
+          imagePullPolicy: {{ $config.image.pullPolicy }}
+          ports:
+            - containerPort: {{ $config.service.port }}
+{{- if eq $name "agent" }}
+          env:
+            - name: GATEWAY_URL
+              value: {{ $config.gatewayUrl | quote }}
+{{- end }}
+---
+{{- end }}
